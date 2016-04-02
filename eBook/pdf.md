@@ -250,6 +250,7 @@ Go 语言通过改善或去除在 C、C++ 或 Java 中的一些所谓“开放�
 - H 参考文献
 
 ## 索引
+# 1 Go 语言的起源，发展与普及
 # 1.1 起源与发展
 
 Go 语言起源 2007 年，并于 2009 年正式对外发布。它从 2009 年 9 月 21 日开始作为谷歌公司 20% 兼职项目，即相关员工利用 20% 的空余时间来参与 Go 语言的研发工作。该项目的三位领导者均是著名的 IT 工程师：Robert Griesemer，参与开发 Java HotSpot 虚拟机；Rob Pike，Go 语言项目总负责人，贝尔实验室 Unix 团队成员，参与的项目包括 Plan 9，Inferno 操作系统和 Limbo 编程语言；Ken Thompson，贝尔实验室 Unix 团队成员，C 语言、Unix 和 Plan 9 的创始人之一，与 Rob Pike 共同开发了 UTF-8 字符集规范。自 2008 年 1 月起，Ken Thompson 就开始研发一款以 C 语言为目标结果的编译器来拓展 Go 语言的设计思想。
@@ -448,6 +449,7 @@ Go 语言可以在 Intel 或 ARM 处理器上运行，因此它也可以在安�
 - 文档全面
 - 免费开源
 
+# 2 安装与运行环境
 # 2.1 平台与架构
 
 Go 语言开发团队开发了适用于以下操作系统的编译器：
@@ -1012,6 +1014,7 @@ SWIG（简化封装器和接口生成器）支持在 Linux 系统下使用 Go �
 
 目前使用 SWIG 存在的一个问题是它无法支持所有的 C++ 库，比如说它就无法解析 TObject.h。
 
+# 4 基本结构与基本数据类型
 # 4.1 文件名、关键字与标识符
 
 Go 的源文件以 `.go` 为后缀名存储在计算机中，这些文件名均由小写字母组成，如 `scanner.go` 。如果文件名由多个部分组成，则使用下划线 `_` 对它们进行分隔，如 `scanner_test.go` 。文件名不包含空格或其他特殊字符。
@@ -7005,21 +7008,6 @@ for e := l.Front(); e != nil; e = e.Next() {
 
 通过使用 `unsafe` 包中的方法来测试你电脑上一个整型变量占用多少个字节。
 
-# 9.10 Go 的外部包和项目
-
-现在我们知道如何使用 Go 以及它的标准库了，但是 Go 的生态要比这大的多。当着手自己的 Go 项目时，最好先查找下是否有些存在的第三方的包或者项目不能使用。大多数可以通过 go install 来进行安装。
-
-[Go Walker][https://gowalker.org] 支持根据包名在海量数据中查询。
-
-目前已经有许多非常好的外部库，如：
-
-- MySQL(GoMySQL), PostgreSQL(go-pgsql), MongoDB (mgo, gomongo), CouchDB (couch-go), ODBC (godbcl), Redis (redis.go) and SQLite3 (gosqlite) database drivers
-- SDL bindings
-- Google's Protocal Buffers(goprotobuf)
-- XML-RPC(go-xmlrpc)
-- Twitter(twitterstream)
-- OAuth libraries(GoAuth)
-	
 	
 # 9.2 regexp 包
 
@@ -7681,6 +7669,23 @@ Gomake（和 go install）将通过 `$GOPATH` 下的本地版本进行工作。
 - Launchpad(bzr)
 
 版本控制系统可以选择你熟悉的或者本地使用的代码版本控制。Go 核心代码的仓库是使用 Mercurial(hg) 来控制的，所以它是一个最可能保证你可以得到开发者项目中最好的软件。Git 也很出名，同样也适用。如果你从未使用过的版本控制，这些网站有一些很好的帮助并且你可以通过在谷歌搜索 "{name} tutorial"，其中 name 为你想要使用的版本控制系统得到许多很好的教程。
+
+# 9.10 Go 的外部包和项目
+
+现在我们知道如何使用 Go 以及它的标准库了，但是 Go 的生态要比这大的多。当着手自己的 Go 项目时，最好先查找下是否有些存在的第三方的包或者项目不能使用。大多数可以通过 go install 来进行安装。
+
+[Go Walker][https://gowalker.org] 支持根据包名在海量数据中查询。
+
+目前已经有许多非常好的外部库，如：
+
+- MySQL(GoMySQL), PostgreSQL(go-pgsql), MongoDB (mgo, gomongo), CouchDB (couch-go), ODBC (godbcl), Redis (redis.go) and SQLite3 (gosqlite) database drivers
+- SDL bindings
+- Google's Protocal Buffers(goprotobuf)
+- XML-RPC(go-xmlrpc)
+- Twitter(twitterstream)
+- OAuth libraries(GoAuth)
+	
+
 
 # 10 结构（struct）与方法（method）
 
@@ -9125,11 +9130,11 @@ runtime.SetFinalizer(obj, func(obj *typeObj))
 
 从练习 10.16 开始（它基于结构体实现了一个栈结构），为栈的实现（stack_struct.go）创建一个单独的包 `stack`，并从 `main` 包 `main.stack.go` 中调用它。
 
-﻿# 11 接口（Interfaces）与反射（reflection）
+# 11 接口（Interfaces）与反射（reflection）
 
 本章介绍 Go 语言中接口和反射的相关内容。
 
-﻿# 11.1 接口是什么
+# 11.1 接口是什么
 
 Go 语言不是一种 *“传统”* 的面向对象编程语言：它里面没有类和继承的概念。
 
@@ -9380,7 +9385,7 @@ a) 扩展 interfaces_poly.go 中的例子，添加一个 `Circle` 类型
 b) 使用一个抽象类型 `Shape`（没有字段） 实现同样的功能，它实现接口 `Shaper`，然后在其他类型里内嵌此类型。扩展 10.6.5 中的例子来说明覆写。
 
 
-﻿# 11.2 接口嵌套接口
+# 11.2 接口嵌套接口
 
 一个接口可以包含一个或多个其他的接口，这相当于直接将这些内嵌接口的方法列举在外层接口中一样。
 
@@ -9404,7 +9409,7 @@ type File interface {
 }
 ```
 
-﻿# 11.3 类型断言：如何检测和转换接口变量的类型
+# 11.3 类型断言：如何检测和转换接口变量的类型
 
 一个接口类型的变量 `varI` 中可以包含任何类型的值，必须有一种方式来检测它的 **动态** 类型，即运行时在变量中存储的值的实际类型。在执行过程中动态类型可能会有所不同，但是它总是可以分配给接口变量本身的类型。通常我们可以使用 **类型断言** 来测试在某个时刻 `varI` 是否包含类型 `T` 的值：
 
@@ -9495,7 +9500,7 @@ func (ci *Circle) Area() float32 {
 
 如果忽略 `areaIntf.(*Square)` 中的 `*` 号，会导致编译错误：`impossible type assertion: Square does not implement Shaper (Area method has pointer receiver)`。
 
-﻿# 11.4 类型判断：type-switch
+# 11.4 类型判断：type-switch
 
 接口变量的类型也可以使用一种特殊形式的 `swtich` 来检测：**type-swtich** （下面是示例 11.4 的第二部分）：
 
@@ -9567,7 +9572,7 @@ func classifier(items ...interface{}) {
 
 接着练习 11.1 中的内容，创建第二个类型 `RSimple`，它也实现了接口 `Simpler`，写一个函数 `fi`，使它可以区分 `Simple` 和 `RSimple` 类型的变量。
 
-﻿# 11.5 测试一个值是否实现了某个接口
+# 11.5 测试一个值是否实现了某个接口
 
 这是 11.3 类型断言中的一个特例：假定 `v` 是一个值，然后我们想测试它是否实现了 `Stringer` 接口，可以这样做：
 
@@ -9593,7 +9598,7 @@ if sv, ok := v.(Stringer); ok {
 
 在接下来的章节中，我们会讨论两个重要的例子，试着去深入理解它们，这样你就可以更好的应用上面的原则。
 
-﻿# 11.6 使用方法集与接口
+# 11.6 使用方法集与接口
 
 在第 10.6.3 节及例子 methodset1.go 中我们看到，作用于变量上的方法实际上是不区分变量到底是指针还是值的。当碰到接口类型值时，这会变得有点复杂，原因是接口变量中存储的具体值是不可寻址的，幸运的是，如果使用不当编译器会给出错误。考虑下面的程序：
 
@@ -9680,7 +9685,7 @@ Go 语言规范定义了接口方法集的调用规则：
 - 类型 T 的可调用方法集包含接受者为 T 的所有方法
 - 类型 T 的可调用方法集不包含接受者为 *T 的方法
 
-﻿# 11.7 第一个例子：使用 Sorter 接口排序
+# 11.7 第一个例子：使用 Sorter 接口排序
 
 一个很好的例子是来自标准库的 `sort` 包，要对一组数字或字符串排序，只需要实现三个方法：反映元素个数的 `Len()`方法、比较第 `i` 和 `j` 个元素的 `Less(i, j)` 方法以及交换第 `i` 和 `j` 个元素的 `Swap(i, j)` 方法。
 
@@ -9902,7 +9907,7 @@ b). 定义一个新接口 `PeriInterface`，它有一个 `Perimeter` 方法。�
 
 定义一个结构体 `Person`，它有两个字段：`firstName` 和 `lastName`，为 `[]Person` 定义类型 `Persons` 。让 `Persons` 实现 `Sorter` 接口并进行测试。
 
-﻿# 11.8 第二个例子：读和写
+# 11.8 第二个例子：读和写
 
 读和写是软件中很普遍的行为，提起它们会立即想到读写文件、缓存（比如字节或字符串切片）、标准输入输出、标准错误以及网络连接、管道等等，或者读写我们的自定义类型。为了让代码尽可能通用，Go 采取了一致的方式来读写数据。
 
@@ -11041,7 +11046,8 @@ func MakeSortedAppender(manufacturers []string) (func(car *Car), map[string]Cars
 ```
 AllCars:  [0xf8400038a0 0xf840003bd0 0xf840003ba0 0xf840003b70]
 New BMWs:  [0xf840003bd0]
-Map sortedCars:  map[Default:[0xf840003ba0] Jaguar:[] Land Rover:[] BMW:[0xf840003bd0 0xf840003b70] Aston Martin:[] Ford:[0xf8400038a0]]
+Map sortedCars:  map[Default:[0xf840003ba0] Jaguar:[] Land Rover:[] 
+	BMW:[0xf840003bd0 0xf840003b70] Aston Martin:[] Ford:[0xf8400038a0]]
 We have  2  BMWs
 ```
 
